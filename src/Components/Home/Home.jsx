@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
-
+import Sales  from '../../images/sales2.png'
 const Home = () => {
   return (
     <>
@@ -20,7 +20,7 @@ const Home = () => {
               aria-controls="nav-home"
               aria-selected="true"
             >
-              Stock
+              Sales Growth
             </button>
             <button
               class="nav-link"
@@ -55,10 +55,12 @@ const Home = () => {
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
-            
-            <p>Toys: 255 pice</p>
-            <p>Dress: 445 pice</p>
-            <p>Electric: 255 pice</p>
+        <div className=" d-flex justify-content-center">
+        <img className="w-25" src={Sales} alt="growth of sales" />
+        <img className="w-25" src={Sales} alt="growth of sales" />
+        
+        </div>
+      
           </div>
           <div
             class="tab-pane fade"
