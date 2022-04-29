@@ -46,8 +46,8 @@ const Header = () => {
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink  to='/services' className="nav-link text-dark" >
-                  Services
+                <CustomLink  to='/inventory' className="nav-link text-dark" >
+                  Inventory
                 </CustomLink>
               </li>
               <li className="nav-item">

@@ -9,10 +9,10 @@ const Inventory = () => {
   }, []);
 
   return (
-    <div className="container-fluid">
-      <h1 className="text-center fw-bold fs-2 text-success">
+    <div className="container-fluid my-5">
+      <h1 className="text-center fw-bolder fs-1 mb-5">
         {" "}
-        Inventory Items
+        Inventory <span className="text-success">Items</span>
       </h1>
       <div className="row">
         
