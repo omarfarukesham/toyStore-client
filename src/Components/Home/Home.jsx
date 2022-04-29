@@ -1,11 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
-import Sales  from '../../images/sales2.png'
+import Sales from "../../images/sales.png";
+import Growth from "../Growth/Growth";
 const Home = () => {
   return (
     <>
-
       <Banner></Banner>
       <div className="container-fluid">
         <nav>
@@ -23,7 +23,7 @@ const Home = () => {
               Sales Growth
             </button>
             <button
-              class="nav-link"
+              class="nav-link text-success fw-bold"
               id="nav-profile-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-profile"
@@ -32,10 +32,10 @@ const Home = () => {
               aria-controls="nav-profile"
               aria-selected="false"
             >
-              Profile
+              Offer
             </button>
             <button
-              class="nav-link"
+              class="nav-link fw-bold text-success"
               id="nav-contact-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-contact"
@@ -44,7 +44,7 @@ const Home = () => {
               aria-controls="nav-contact"
               aria-selected="false"
             >
-              Contact
+              Stock
             </button>
           </div>
         </nav>
@@ -55,31 +55,21 @@ const Home = () => {
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
-        <div className=" d-flex justify-content-center">
-        <img className="w-25" src={Sales} alt="growth of sales" />
-        <img className="w-25" src={Sales} alt="growth of sales" />
-        
-        </div>
-      
+            <div className=" d-flex justify-content-center">
+              <Growth></Growth>
+            </div>
           </div>
           <div
             class="tab-pane fade"
             id="nav-profile"
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
+            
           >
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/" class="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+            <div className="d-flex justify-content-around">
+            <img className="w-25" src={Sales} alt="growth of sales" />
+            <img className="w-25" src={Sales} alt="growth of sales" />
+            <img className="w-25" src={Sales} alt="growth of sales" />
             </div>
           </div>
           <div
@@ -88,10 +78,16 @@ const Home = () => {
             role="tabpanel"
             aria-labelledby="nav-contact-tab"
           >
-            ..ssssssssssssssssssss.
+            <div className="d-flex justify-content-around mt-3">
+              <h3 className="fw-bold text-black">Kids Toys - 2403(pice)</h3>
+              <h3 className="fw-bold text-black">Dress of Kids - 2403(pice)</h3>
+              <h3 className="fw-bold text-black">Digital Toys - 2403(pice)</h3>
+            </div>
+            
           </div>
         </div>
       </div>
+      
     </>
   );
 };
