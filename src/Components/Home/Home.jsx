@@ -3,11 +3,12 @@ import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import Sales from "../../images/sales.png";
 import Growth from "../Growth/Growth";
+import Inventory from "../Inventory/Inventory";
 const Home = () => {
   return (
     <>
       <Banner></Banner>
-      <div className="container-fluid">
+      <div className="container-fluid col">
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button
@@ -87,7 +88,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
+      {/* Inventory section design  */}
+      <Inventory></Inventory>
     </>
   );
 };
