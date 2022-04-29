@@ -46,7 +46,7 @@ const Header = () => {
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink  to='/inventory' className="nav-link text-dark" >
+                <CustomLink  to='/inventory/:id' className="nav-link text-dark" >
                   Inventory
                 </CustomLink>
               </li>
