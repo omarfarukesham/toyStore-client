@@ -51,17 +51,21 @@ const Header = () => {
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink className="nav-link text-dark" to="/about" >
-                  About
-                </CustomLink>
+              {
+                  user && <>
+                  
+                  <CustomLink className="nav-link text-dark" to="/wishlist" >
+                  <i class="fa-solid fa-heart-circle-plus mx-2 text-warning"></i> WishList
+                 </CustomLink>
+                  </>
+                }
+                
               </li>
               <li className="nav-item">
               { user?.uid ? <button onClick={logOut} className="btn btn-outline-primary">SignOut</button>:
                  <CustomLink className=" text-black fw-bold icon--plus nav-link " to="/login"> <i className="fa-solid fa-user-plus"></i>Login</CustomLink>
                }
-                {/* <CustomLink className="nav-link text-dark" to="/login">
-                  Login
-                </CustomLink> */}
+               
               </li>
               
             </ul>

@@ -8,6 +8,7 @@ import StockManage from './Components/Inventory/StockManage/StockManage';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Login from './Components/Security/Login/Login';
 import Register from './Components/Security/Register/Register';
+import Wishlist from './Components/Wishlist/Wishlist';
 
 function App() {
   return (
@@ -26,6 +27,12 @@ function App() {
             <AllInventories></AllInventories>
           </RequireAuth>
         }></Route>
+      <Route path="/wishlist" element={
+          <RequireAuth>
+            <Wishlist></Wishlist>
+          </RequireAuth>
+        }></Route>
+        
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/register' element={<Register></Register>}></Route>
     </Routes>

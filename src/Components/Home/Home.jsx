@@ -91,6 +91,8 @@ const Home = () => {
 
       {/* Inventory section design  */}
       <Inventory></Inventory>
+
+      
     </>
   );
 };
