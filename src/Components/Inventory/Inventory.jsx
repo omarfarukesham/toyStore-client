@@ -14,7 +14,7 @@ const Inventory = () => {
 
   const updateHandler = (id) =>{
       navigate(`/inventory/${id}`);
-    
+
   }
 
   return (
@@ -23,6 +23,8 @@ const Inventory = () => {
         {" "}
         Inventory <span className="text-success">Items</span>
       </h1>
+     <Link className="text-decoration-none fw-bold btn btn-outline-primary my-3" to='/allInventories' >All Inventories...</Link>
+
       <div className="row">
         
           {products.map((product) => (
