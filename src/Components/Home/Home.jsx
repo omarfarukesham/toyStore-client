@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Sales from "../../images/sales.png";
 import Growth from "../Growth/Growth";
 import Inventory from "../Inventory/Inventory";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <>
@@ -91,6 +92,7 @@ const Home = () => {
 
       {/* Inventory section design  */}
       <Inventory></Inventory>
+      <Footer></Footer>
 
       
     </>

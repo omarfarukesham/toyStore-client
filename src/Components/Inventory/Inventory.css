@@ -1,0 +1,21 @@
+.btn--design{
+    background-color: #06114f;
+    color:white;
+    border-radius: 5px;
+}
+.btn--design:hover{
+    background-color: white;
+    color:#06114f;
+    transition: .5s;
+    border:1px solid #4a25be;
+}
+.btn--design2{
+    background-color: #06114f;
+    color:white;
+}
+.btn--design2:hover{
+    background-color: white;
+    color:#06114f;;
+    transition: .5s;
+    border:1px solid #4a25be;
+}
