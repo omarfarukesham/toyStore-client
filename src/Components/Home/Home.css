@@ -1,0 +1,13 @@
+.headText--design{ 
+    border-bottom: 4px solid #4a25be;
+    display: inline-block;
+    align-items: center;
+}
+.headIcon--design i{
+    font-size: 30px;
+    margin:5px;
+    color:#4a25be;
+    font-weight: bold;
+ 
+
+}

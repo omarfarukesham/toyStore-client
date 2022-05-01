@@ -1,9 +1,9 @@
-.btn--design{
+.btn--design1{
     background-color: #06114f;
     color:white;
     border-radius: 5px;
 }
-.btn--design:hover{
+.btn--design1:hover{
     background-color: white;
     color:#06114f;
     transition: .5s;

@@ -39,21 +39,25 @@ const Inventory = () => {
       });
   };
   return (
-    <div className="container-fluid my-5">
-      <h1 className="text-center fw-bolder fs-1 mb-5">
-        {" "}
-        Inventory <span className="text-success">Items</span>
-      </h1>
+    <div className="container-fluid my-3">
+      <div className=" container-fluid text-center mt-3">
+        <h1 className="fs-2 text-center my-5 fw-bold headIcon--design headText--design">
+        <i class="fa-solid fa-shop-lock"></i>Stock Items
+        </h1>
+      </div>
+      <div className="d-flex justify-content-end mb-3">
       <Link
-        className="text-decoration-none fw-bold btn btn-outline-primary my-3"
+        className="text-decoration-none fw-bold btn btn--design1 my-3"
         to="/allInventories"
       >
         All Inventories...
       </Link>
 
+      </div>
+     
       <div className="row">
         {products.map((product) => (
-          <div className="col-md-4 col-lg-3">
+          <div className="col-md-6 col-lg-3">
             <div class="card">
               <img
                 class="card-img-top"
@@ -69,7 +73,7 @@ const Inventory = () => {
                 <div className="d-flex justify-content-around align-items-center">
                   <button
                     onClick={() => wishlistHandler(product.name)}
-                    className="btn btn--design "
+                    className="btn btn--design1 "
                   >
                     {" "}
                     <i class="fa-solid fa-heart-circle-plus mx-1"></i>
