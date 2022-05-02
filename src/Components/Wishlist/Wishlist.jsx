@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import wishlist from "../../images/wishlist.png";
+import Footer2 from "../Footer/Footer2";
 import "./wishlist.css";
 
 const Wishlist = () => {
@@ -34,6 +35,8 @@ const Wishlist = () => {
   };
 
   return (
+    <>
+   
     <div className="text-center">
       <div className="container-fluid">
         <div className=" container-fluid text-center mt-5">
@@ -81,6 +84,8 @@ const Wishlist = () => {
         </div>
       ))} */}
     </div>
+    <Footer2></Footer2>
+    </>
   );
 };
 

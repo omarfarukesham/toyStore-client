@@ -4,32 +4,54 @@ import { Button, Modal } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
+import Footer2 from "../Footer/Footer2";
+import "./Allinventories.css";
 
 const Main = () => {
+  //product load and update hooks here.................................
   const [users, setUsers] = useState([]);
   const [update, setUpdate] = useState({});
-  const { register, reset } = useForm();
+  //user loading firebase hooks code....................................
   const [user, loading, error] = useAuthState(auth);
 
-  //Modal code handler here
+  //pagination hooks for all items page here...........................
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(5);
+
+  useEffect(() => {
+    fetch(`https://serene-headland-23680.herokuapp.com/product?page=${page}&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [users, page, size]);
+
+  useEffect(() => {
+    fetch("https://serene-headland-23680.herokuapp.com/productCount")
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data.count;
+        const pages = Math.ceil(count /5);
+        setPageCount(pages);
+      });
+  }, []);
+
+  //Modal code handler here.............................................
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (id) => {
-    // console.log(id)
     const url = `https://serene-headland-23680.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUpdate(data));
-
     setShow(true);
   };
 
   //data pick from database through node server
-  useEffect(() => {
-    fetch("https://serene-headland-23680.herokuapp.com/products")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, [users]);
+  // useEffect(() => {
+  //   fetch("https://serene-headland-23680.herokuapp.com/products")
+  //     .then((res) => res.json())
+  //     .then((data) => setUsers(data));
+  // }, [users]);
 
   //collect data from form and send it to server then mongodb
   const handleSubmit = (e) => {
@@ -41,12 +63,12 @@ const Main = () => {
     const supplier = e.target.supplier.value;
 
     const data = { name, image, quantity, Description, supplier };
-    console.log(data)
-    fetch("http://localhost:5000/product", {
+    console.log(data);
+    fetch("https://serene-headland-23680.herokuapp.com/product", {
       method: "POST",
       headers: {
-        "Authorization":`${user.email} ${localStorage.getItem("accessToken")}`,
-        "Content-Type": "application/json"
+        Authorization: `${user.email} ${localStorage.getItem("accessToken")}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
@@ -71,16 +93,13 @@ const Main = () => {
     const data = { name, image, quantity, Description, supplier };
     console.log(data);
 
-    fetch(
-      `http://localhost:5000/updateAll/${update._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch(`https://serene-headland-23680.herokuapp.com/updateAll/${update._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((result) => {
         const newUser = [...users, result];
@@ -92,7 +111,7 @@ const Main = () => {
   const deleteHandler = (id) => {
     const proceed = window.confirm("Are you sure for Delete .........");
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://serene-headland-23680.herokuapp.com/product/${id}`;
       console.log(url);
       fetch(url, {
         method: "delete",
@@ -101,7 +120,7 @@ const Main = () => {
         .then((data) => {
           const remaining = users.filter((user) => user._id !== id);
           setUsers(remaining);
-          console.log(data);
+          // console.log(data);
         });
     }
   };
@@ -166,7 +185,8 @@ const Main = () => {
       <div className="d-flex justify-content-center container mt-5">
         <div className=" mx-auto">
           <h3 className="text-center">
-            Total Stock Items - <span className="text-primary fw-bold">{users.length}</span>
+            Total Stock Per page -{" "}
+            <span className="text-primary fw-bold">{users.length}</span>
           </h3>
           <table className="table table-hover">
             <thead>
@@ -185,7 +205,7 @@ const Main = () => {
                   <th scope="row">{users.indexOf(user) + 1}</th>
                   <td>
                     <img
-                      className="w-25 rounded-circle"
+                      className="tableImg--design"
                       src={user.image}
                       alt="pImage"
                     />{" "}
@@ -285,6 +305,26 @@ const Main = () => {
           </Modal>
         </div>
       </div>
+      <div className="pagination d-flex justify-content-center">
+        {[...Array(pageCount).keys()].map((number) => (
+          <button
+            onClick={() => setPage(number)}
+            className={page == number ? "selected" : ""}
+          >
+            {" "}
+            {number + 1}
+          </button>
+        ))}
+
+        <div className="pagination">
+          <select onChange={(e) => setSize(e.target.value)}>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+      </div>
+      <Footer2></Footer2>
     </>
   );
 };

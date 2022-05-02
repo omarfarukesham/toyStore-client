@@ -3,7 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 const Loading = () => {
   return (
-    <div className=" d-flex justify-content-center align-items-center text-center">
+    <div className=" d-flex justify-content-center align-items-center text-center h-100">
       <Button variant="warning" disabled>
         <Spinner
           as="span"

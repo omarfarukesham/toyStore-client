@@ -15,3 +15,8 @@
     color:white;
     transition: .5s;
 }
+.footer2--design{
+    height: 70px;
+    background-color:#06114f;
+    width:100%;
+}

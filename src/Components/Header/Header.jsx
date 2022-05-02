@@ -55,10 +55,16 @@ const Header = () => {
               <li className="nav-item">
               {
                   user && <>
-                  
+                  <div className="d-flex">
+                  <CustomLink className="nav-link text-dark" to="/allInventories" >
+                   AddStock
+                 </CustomLink>
+
                   <CustomLink className="nav-link text-dark" to="/wishlist" >
                   <i class="fa-solid fa-heart-circle-plus mx-2 icon--design"></i> WishList
                  </CustomLink>
+                  </div>
+                 
                   </>
                 }
                 

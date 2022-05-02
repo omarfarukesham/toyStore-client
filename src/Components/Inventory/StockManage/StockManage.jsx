@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Footer2 from "../../Footer/Footer2";
 
 const StockManage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
     // fetch(`https://serene-headland-23680.herokuapp.com/products/${productId}`)
-    fetch(`http://localhost:5000/products/${productId}`)
+    fetch(`https://serene-headland-23680.herokuapp.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [product]);
@@ -98,6 +99,8 @@ const StockManage = () => {
           </form>
         </div>
       </div>
+    
+    <Footer2></Footer2>
     </>
   );
 };
