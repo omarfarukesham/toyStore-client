@@ -18,7 +18,7 @@ const Growth = () => {
       .then((data) => setCharts(data));
   }, []);
 
-  console.log(charts);
+  // console.log(charts);
   return (
     <div className="navbar--bg">
       <div className=" container-fluid text-center mt-5">

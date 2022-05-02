@@ -15,6 +15,24 @@ const Wishlist = () => {
       .then((data) => setWishlist(data));
   }, [wishlists]);
 
+  // item reamove handler code here -----------------------------
+  const removeItem = (id) => {
+    const proceed = window.confirm("Are you sure for Delete .........");
+    if (proceed) {
+      const url = `http://localhost:5000/removeOrder/${id}`;
+      console.log(url);
+      fetch(url, {
+        method: "delete",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = wishlists.filter((wish) => wish._id !== id);
+          setWishlist(remaining);
+          console.log(data);
+        });
+    }
+  };
+
   return (
     <div className="text-center">
       <div className="container-fluid">
@@ -26,7 +44,7 @@ const Wishlist = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 col-md-12">
-            <img src={wishlist} className="img-fluid" alt="wishlistImg" />
+            <img src={wishlist} className="w-75" alt="wishlistImg" />
           </div>
           <div className="col-lg-6 col-md-12">
             <table class="table table-hover">
@@ -44,7 +62,7 @@ const Wishlist = () => {
                       <th scope="row">{wishlists.indexOf(wish) + 1}</th>
                       <td>{wish.productName}</td>
                       <td>
-                        <button className="btn btn--design1">
+                        <button onClick={()=>removeItem(wish._id)} className="btn btn--design1">
                           Remove
                         </button>
                       </td>

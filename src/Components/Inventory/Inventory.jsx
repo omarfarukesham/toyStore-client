@@ -22,7 +22,7 @@ const Inventory = () => {
 
   const wishlistHandler = (id) => {
     const productName = id;
-    const userEmail = user.email;
+    const userEmail = user?.email;
     // const productName = products.name
     const order = { productName, userEmail };
     fetch("http://localhost:5000/order", {
@@ -57,8 +57,8 @@ const Inventory = () => {
      
       <div className="row">
         {products.map((product) => (
-          <div className="col-md-6 col-lg-3">
-            <div class="card">
+          <div className="col-md-6 col-lg-3 ">
+            <div class="card my-3">
               <img
                 class="card-img-top"
                 src={product.image}

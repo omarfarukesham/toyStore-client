@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdatePassword } from "react-firebase-hooks/auth";
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdatePassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import "./Login.css";
@@ -15,6 +15,7 @@ const Login = () => {
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const[error12, setError12] = useState('')
+  const [guser, gloading, gerror] = useAuthState(auth);
 
   const [ signInWithEmailAndPassword, user1, loading1, error1] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -27,9 +28,46 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   let from = location.state?.from?.pathname || "/";
+
+//json webtoken creating method
+// console.log(guser)
+//   if(guser){
+//     console.log(guser?.email)
+//     const url = 'http://localhost:5000/login'
+//     fetch(url, {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ email: guser?.email })
+//     })
+//     .then(res=>res.json())
+//     .then((data) => {
+//       console.log(data);
+//       localStorage.setItem("accessToken", data.token);
+//       navigate(from, { replace: true });
+//   });
+//   }
+
+
   if(user1){
-    navigate(from, { replace: true });
+
+// json web token(jwt) token create for secure user when email&password login ........... 
+    if(guser){
+      console.log(guser?.email)
+      const url = 'http://localhost:5000/login'
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: guser?.email })
+      })
+      .then(res=>res.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("accessToken", data.token);
+        navigate(from, { replace: true });
+    });
+    }
   }
+
 
   if(user){
    navigate(from, { replace: true });
@@ -42,7 +80,7 @@ const Login = () => {
     const email = emailRef.current.value 
     const password = passwordRef.current.value
     signInWithEmailAndPassword(email, password)
-    toast("We are cheeking you info, wait!")
+    toast("We are cheeking your info, Please wait!")
   }
 
 

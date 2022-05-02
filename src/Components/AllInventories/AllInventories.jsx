@@ -1,12 +1,15 @@
 //issue-1: form reset is not working
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import auth from "../../firebase.init";
 
 const Main = () => {
   const [users, setUsers] = useState([]);
   const [update, setUpdate] = useState({});
   const { register, reset } = useForm();
+  const [user, loading, error] = useAuthState(auth);
 
   //Modal code handler here
   const [show, setShow] = useState(false);
@@ -42,7 +45,8 @@ const Main = () => {
     fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Authorization":`${user.email} ${localStorage.getItem("accessToken")}`,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(data),
     })
@@ -153,7 +157,7 @@ const Main = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-100">
+          <button type="submit" className="btn btn--design1 w-100">
             Add Stock
           </button>
         </form>
@@ -193,13 +197,13 @@ const Main = () => {
                   <td className="d-flex h-100">
                     <button
                       onClick={() => handleShow(user._id)}
-                      className="btn btn-primary"
+                      className="btn btn--design1"
                     >
                       Update
                     </button>
                     <button
                       onClick={() => deleteHandler(user._id)}
-                      className="btn btn-danger"
+                      className="btn btn-outline-danger"
                     >
                       Delete
                     </button>
