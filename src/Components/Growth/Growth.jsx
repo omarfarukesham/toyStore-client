@@ -13,12 +13,12 @@ const Growth = () => {
   const [charts, setCharts] = useState([]);
   useEffect(() => {
     fetch("https://serene-headland-23680.herokuapp.com/sales")
-      // fetch('http://localhost:5000/sales')
+  
       .then((res) => res.json())
       .then((data) => setCharts(data));
   }, []);
 
-  // console.log(charts);
+
   return (
     <div className="navbar--bg">
       <div className=" container-fluid text-center mt-5">

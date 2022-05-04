@@ -10,7 +10,7 @@ const Wishlist = () => {
   const [wishlists, setWishlist] = useState([]);
   useEffect(() => {
     const email = user.email;
-    const url = `http://localhost:5000/order?email=${email}`;
+    const url = `https://serene-headland-23680.herokuapp.com/order?email=${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setWishlist(data));
@@ -20,7 +20,7 @@ const Wishlist = () => {
   const removeItem = (id) => {
     const proceed = window.confirm("Are you sure for Delete .........");
     if (proceed) {
-      const url = `http://localhost:5000/removeOrder/${id}`;
+      const url = `https://serene-headland-23680.herokuapp.com/removeOrder/${id}`;
       console.log(url);
       fetch(url, {
         method: "delete",

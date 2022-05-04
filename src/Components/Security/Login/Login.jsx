@@ -29,31 +29,12 @@ const Login = () => {
   const location = useLocation()
   let from = location.state?.from?.pathname || "/";
 
-//json webtoken creating method
-// console.log(guser)
-//   if(guser){
-//     console.log(guser?.email)
-//     const url = 'http://localhost:5000/login'
-//     fetch(url, {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ email: guser?.email })
-//     })
-//     .then(res=>res.json())
-//     .then((data) => {
-//       console.log(data);
-//       localStorage.setItem("accessToken", data.token);
-//       navigate(from, { replace: true });
-//   });
-//   }
-
-
   if(user1){
 
 // json web token(jwt) token create for secure user when email&password login ........... 
     if(guser){
       console.log(guser?.email)
-      const url = 'http://localhost:5000/login'
+      const url = 'https://serene-headland-23680.herokuapp.com/login'
       fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -124,7 +105,7 @@ const Login = () => {
         </Form.Group>
 
         <Button
-          className="btn btn-outline-primary w-100"
+           className="btn btn-outline-primary w-100"
           variant=""
           type="submit"
           // onClick={notify}
@@ -139,7 +120,7 @@ const Login = () => {
         <div>
           Forget Password ? <button onClick={resetPassword} className="btn btn-link ">Reset Password</button>
           <hr></hr>
-          SignIn With Google ? <button onClick={signInGoogle} className="btn btn-link google--btn">Google LogIn</button>
+          SignIn With Google ? <button onClick={signInGoogle} className="btn btn-link">Google LogIn</button>
           <hr></hr>
           Are you A new User ? <Link to="/register"> New User SignUp</Link>
         </div>

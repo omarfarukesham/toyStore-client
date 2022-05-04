@@ -18,7 +18,7 @@ const StockManage = () => {
     }
     const reduceQuantity = product.quantity - 1;
     console.log(reduceQuantity, id);
-    fetch(`http://localhost:5000/update/${productId}`, {
+    fetch(`https://serene-headland-23680.herokuapp.com/update/${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const StockManage = () => {
     console.log(addStockQty);
 
     //    console.log(data)
-    fetch(`http://localhost:5000/update/${productId}`, {
+    fetch(`https://serene-headland-23680.herokuapp.com/update/${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Inventory = () => {
   const [products, setProducts] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://serene-headland-23680.herokuapp.com/products")
       // fetch("https://serene-headland-23680.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -25,7 +25,7 @@ const Inventory = () => {
     const userEmail = user?.email;
     // const productName = products.name
     const order = { productName, userEmail };
-    fetch("http://localhost:5000/order", {
+    fetch("https://serene-headland-23680.herokuapp.com/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

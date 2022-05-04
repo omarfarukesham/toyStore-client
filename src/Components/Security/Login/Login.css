@@ -1,30 +1,30 @@
 
 .login--form{
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     padding: 15px;
     width: 400px;
     border-radius: 20px;
 }
 .or--left{
     width: 150px;
-    border: 2px solid #3b4a6b;
+    border: 2px solid #06114f
 }
 .or--right{
     width: 150px;
-    border: 2px solid #3b4a6b;
+    border: 2px solid #06114f;
 }
 .google--btn i{
     padding-right: 5px;
-    color: #3b4a6b;
+    color: #06114f;
     font-size: 12px;
 }
 .icon--lock i{
     padding: 10px;
     font-size: 30px;
-    color: orange;
+    color:#4a25be;
 }
 
 .icon--lock{
-    color:orange;
+    color:#4a25be;
     
 }
