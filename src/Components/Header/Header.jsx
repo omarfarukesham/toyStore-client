@@ -46,12 +46,12 @@ const Header = () => {
                   Blogs
                 </CustomLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <CustomLink  to='/inventory/:id' className="nav-link text-dark" >
                   Inventory
                   
                 </CustomLink>
-              </li>
+              </li> */}
               <li className="nav-item">
               {
                   user && <>
