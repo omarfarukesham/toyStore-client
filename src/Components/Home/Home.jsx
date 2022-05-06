@@ -1,20 +1,18 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
-import Sales from "../../images/sales.png";
 import Growth from "../Growth/Growth";
 import Inventory from "../Inventory/Inventory";
 import Footer from "../Footer/Footer";
 import "./Home.css";
+import Improvebox from "../Improvement/Improvebox";
 
 const Home = () => {
   return (
     <>
       <Banner></Banner>
       <Growth></Growth>
-     
-      {/* Inventory section design  */}
       <Inventory></Inventory>
+      <Improvebox></Improvebox>
       <Footer></Footer>
     </>
   );

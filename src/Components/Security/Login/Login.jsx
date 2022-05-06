@@ -6,8 +6,7 @@ import auth from "../../../firebase.init";
 import "./Login.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { async } from "@firebase/util";
-import { Helmet } from "react-helmet-async";
+
 
 
 
@@ -19,7 +18,6 @@ const Login = () => {
 
   const [ signInWithEmailAndPassword, user1, loading1, error1] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const [updatePassword, updating, updateError] = useUpdatePassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(
     auth
   );
@@ -33,7 +31,8 @@ const Login = () => {
 
 // json web token(jwt) token create for secure user when email&password login ........... 
     if(guser){
-      console.log(guser?.email)
+      // console.log(guser?.email)
+      // const url = 'http://localhost:5000/login'
       const url = 'https://serene-headland-23680.herokuapp.com/login'
       fetch(url, {
         method: 'POST',
