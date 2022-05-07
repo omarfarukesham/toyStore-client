@@ -5,10 +5,14 @@ import Inventory from "../Inventory/Inventory";
 import Footer from "../Footer/Footer";
 import "./Home.css";
 import Improvebox from "../Improvement/Improvebox";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <>
+     <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Banner></Banner>
       <Growth></Growth>
       <Inventory></Inventory>

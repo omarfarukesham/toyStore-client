@@ -6,6 +6,7 @@ import auth from "../../../firebase.init";
 import "./Login.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -31,8 +32,7 @@ const Login = () => {
 
 // json web token(jwt) token create for secure user when email&password login ........... 
     if(guser){
-      // console.log(guser?.email)
-      // const url = 'http://localhost:5000/login'
+      
       const url = 'https://serene-headland-23680.herokuapp.com/login'
       fetch(url, {
         method: 'POST',
@@ -86,9 +86,9 @@ const Login = () => {
 
   return (
     <div className=" form--design mx-auto my-5 login--form">
-      {/* <Helmet>
+      <Helmet>
         <title>Login</title>
-      </Helmet> */}
+      </Helmet>
       <h3 className="my-4 icon--lock text-center"><i className="fa-solid fa-lock-open"></i> LOGIN</h3>
       <p className="text-danger">{error?.message}</p>
       <p className="text-danger">{error1?.message}</p>

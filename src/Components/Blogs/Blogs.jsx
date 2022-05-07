@@ -1,10 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Footer2 from "../Footer/Footer2";
 
 const Blogs = () => {
   return (
     <>
-      <div className="w-75 mx-auto">
+     <Helmet>
+        <title>Blogs</title>
+      </Helmet>
+      <div className="w-75 mx-auto" data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="3000">
         <h1 className="text-center fs-2 fw-bold">Your Question</h1>
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">

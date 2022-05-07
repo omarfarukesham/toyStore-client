@@ -1,7 +1,7 @@
-//issue-1: form reset is not working
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import Footer2 from "../Footer/Footer2";
@@ -20,7 +20,9 @@ const Main = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch(`https://serene-headland-23680.herokuapp.com/product?page=${page}&size=${size}`)
+    fetch(
+      `https://serene-headland-23680.herokuapp.com/product?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users, page, size]);
@@ -30,7 +32,7 @@ const Main = () => {
       .then((res) => res.json())
       .then((data) => {
         const count = data.count;
-        const pages = Math.ceil(count /5);
+        const pages = Math.ceil(count / 5);
         setPageCount(pages);
       });
   }, []);
@@ -46,12 +48,6 @@ const Main = () => {
     setShow(true);
   };
 
-  //data pick from database through node server
-  // useEffect(() => {
-  //   fetch("https://serene-headland-23680.herokuapp.com/products")
-  //     .then((res) => res.json())
-  //     .then((data) => setUsers(data));
-  // }, [users]);
 
   //collect data from form and send it to server then mongodb
   const handleSubmit = (e) => {
@@ -93,13 +89,16 @@ const Main = () => {
     const data = { name, image, quantity, Description, supplier };
     console.log(data);
 
-    fetch(`https://serene-headland-23680.herokuapp.com/updateAll/${update._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://serene-headland-23680.herokuapp.com/updateAll/${update._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         const newUser = [...users, result];
@@ -127,7 +126,15 @@ const Main = () => {
 
   return (
     <>
-      <div className="h-50 w-50 mx-auto">
+      <Helmet>
+        <title>addStock</title>
+      </Helmet>
+      <div
+        className="h-50 w-50 mx-auto"
+        data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <h3 className="text-center">Add Product</h3>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

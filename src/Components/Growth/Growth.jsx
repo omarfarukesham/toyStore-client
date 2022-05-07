@@ -13,11 +13,9 @@ const Growth = () => {
   const [charts, setCharts] = useState([]);
   useEffect(() => {
     fetch("https://serene-headland-23680.herokuapp.com/sales")
-  
       .then((res) => res.json())
       .then((data) => setCharts(data));
   }, []);
-
 
   return (
     <div className="navbar--bg">
@@ -28,7 +26,12 @@ const Growth = () => {
       </div>
       <div className="container-fluid">
         <div className="row text-center">
-          <div className="col-lg-6 col-md-12">
+          <div
+            className="col-lg-6 col-md-12"
+            data-aos="zoom-in-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+          >
             <div className="m-3">
               <h3 className="text-dark fw-bold">First Quarter(Sales)</h3>
               <LineChart width={450} height={350} data={charts}>
@@ -39,7 +42,12 @@ const Growth = () => {
               </LineChart>
             </div>
           </div>
-          <div className="col-lg-6 col-md-12">
+          <div
+            className="col-lg-6 col-md-12"
+            data-aos="zoom-in-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+          >
             <div className="m-2 ">
               <h3 className="text-dark fw-bold">Second Quarter(Revenue)</h3>
               <BarChart width={450} height={350} data={charts}>

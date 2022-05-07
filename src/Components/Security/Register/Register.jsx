@@ -58,9 +58,9 @@ const Login = () => {
 
   return (
     <div className=" form--design mx-auto my-5 login--form">
-      {/* <Helmet>
+      <Helmet>
         <title>SignUp</title>
-      </Helmet> */}
+      </Helmet>
       <h3 className="my-4 icon--lock text-center">
         <i class="fa-solid fa-user-plus"></i> SignUp
       </h3>

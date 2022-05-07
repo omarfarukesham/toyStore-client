@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import './Inventory.css'
+import "./Inventory.css";
 
 const Inventory = () => {
   const [user, loading, error] = useAuthState(auth);
   const [products, setProducts] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
-    fetch("https://serene-headland-23680.herokuapp.com/products")
-    //  fetch("http://localhost:5000/products")
+     fetch("https://serene-headland-23680.herokuapp.com/products")
+    // fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -40,24 +40,30 @@ const Inventory = () => {
   };
   return (
     <div className="container-fluid my-3">
-      <div className=" container-fluid text-center mt-3">
+      <div
+        className=" container-fluid text-center mt-3"
+        data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000"
+      >
         <h1 className="fs-2 text-center my-5 fw-bold headIcon--design headText--design">
-        <i class="fa-solid fa-shop-lock"></i>Stock Items
+          <i class="fa-solid fa-shop-lock"></i>Stock Items
         </h1>
       </div>
-      <div className="d-flex justify-content-end mb-3">
-      <Link
-        className="text-decoration-none fw-bold btn btn--design1 my-3"
-        to="/allInventories"
-      >
-        All Inventories...
-      </Link>
-
+      <div className="d-flex justify-content-end mb-3" data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000">
+        <Link
+          className="text-decoration-none fw-bold btn btn--design1 my-3"
+          to="/allInventories"
+        >
+          All Inventories...
+        </Link>
       </div>
-     
-      <div className="row">
+
+      <div className="row" >
         {products.map((product) => (
-          <div className="col-md-6 col-lg-3 ">
+          <div className="col-md-6 col-lg-3 "  >
             <div class="card my-3">
               <img
                 class="card-img-top"
