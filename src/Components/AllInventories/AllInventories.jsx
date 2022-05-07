@@ -136,6 +136,7 @@ const Main = () => {
         data-aos-duration="2000"
       >
         <h3 className="text-center">Add Product</h3>
+        <small className="text-center text-primary">....Only for Email/password verified user(jwt-integrated)</small>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input

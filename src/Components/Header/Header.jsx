@@ -13,17 +13,18 @@ const Header = () => {
   const logOut = () =>{
     signOut(auth);
   }
-
+  
+//   <Link to="/" className="navbar-brand fs-3 fw-bold navbar--design text-dark " title="TOYS FOR HAPPINESS....." >
+//   {/* <img className="logo--design" src={logo} alt="" /> */}
+//   Kids <span className="navbar--design">Store</span>
+//  </Link>
   return (
-    <div className="container-fluid navbar--bg sticky-top text-dark">
-      <nav className="navbar navbar-expand-lg  sticky-top">
-        <div className="container-fluid">
-        <Link to="/" className="navbar-brand fs-3 fw-bold navbar--design text-dark " title="TOYS FOR HAPPINESS....." >
-           {/* <img className="logo--design" src={logo} alt="" /> */}
-           Kids <span className="navbar--design">Store</span>
-          </Link>
+    <div className="container-fluid navbar--bg  sticky-top ">
+      <nav className="navbar navbar-expand-lg navbar-light">
+       <Link class="navbar-brand fs-3 fw-bold text-dark navbar--design" to="/">Kids <span className="navbar--design"> Store</span></Link>
+    
           <button
-            className="navbar-toggler text-dark"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -31,7 +32,7 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon text-dark"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
        
             <div className="collapse navbar-collapse" id="navbarNav">
@@ -78,7 +79,7 @@ const Header = () => {
               
             </ul>
           </div>
-        </div>
+     
       </nav>
     </div>
   );

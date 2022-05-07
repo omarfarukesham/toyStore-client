@@ -9,7 +9,9 @@ const Footer = () => {
           <div class="row mb-2 pb-3 no-gutters">
             <div class="col-md-4 mb-md-0 mb-4 d-flex">
               <div class="con con-1 w-100 py-5">
-                <div class="con-info w-100 text-center">
+                <div class="con-info w-100 text-center"  data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
                   <div class="icon d-flex align-items-center justify-content-center common--icon">
                     <span className="text-center">
                       {" "}
@@ -17,14 +19,16 @@ const Footer = () => {
                     </span>
                   </div>
                   <div class="text">
-                    <span>(+00) 1234 5678</span>
+                    <span>(+00) 1775-070627</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-md-0 mb-4 d-flex">
               <div class="con con-2 w-100 py-5">
-                <div class="con-info w-100 text-center">
+                <div class="con-info w-100 text-center"  data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
                   <div class="icon d-flex align-items-center justify-content-center common--icon">
                     <i class="fa-solid fa-envelope-circle-check "></i>
                   </div>
@@ -36,13 +40,15 @@ const Footer = () => {
             </div>
             <div class="col-md-4 mb-md-0 mb-4 d-flex">
               <div class="con con-3 w-100 py-5">
-                <div class="con-info w-100 text-center">
+                <div class="con-info w-100 text-center"  data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
                   <div class="icon d-flex align-items-center justify-content-center common--icon">
                     <i class="fa-solid fa-address-card"></i>
                   </div>
                   <div class="text">
                     <span>
-                      203 Fake St. Mountain View, San Francisco, California, USA
+                      203 free school St. Mountain View, Panthopath, Dhaka, Bangladesh.
                     </span>
                   </div>
                 </div>
