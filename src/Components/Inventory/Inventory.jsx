@@ -79,10 +79,10 @@ const Inventory = () => {
                 <div className="d-flex justify-content-around align-items-center">
                   <button
                     onClick={() => wishlistHandler(product.name)}
-                    className="btn btn--design1 "
+                    className="btn btn--design1"
                   >
                     {" "}
-                    <i class="fa-solid fa-heart-circle-plus mx-1"></i>
+                    <i class="fa-solid fa-heart-circle-plus"></i>
                     Wishlist
                   </button>
                   <button

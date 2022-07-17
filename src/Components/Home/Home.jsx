@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import "./Home.css";
 import Improvebox from "../Improvement/Improvebox";
 import { Helmet } from "react-helmet-async";
+import Testimonial from "../Testimonial";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Growth></Growth>
       <Inventory></Inventory>
       <Improvebox></Improvebox>
+    
       <Footer></Footer>
     </>
   );

@@ -47,6 +47,11 @@ const Header = () => {
                   Blogs
                 </CustomLink>
               </li>
+              <li className="nav-item">
+                <CustomLink  to='/contact' className="nav-link text-dark" >
+                  Contact
+                </CustomLink>
+              </li>
               {/* <li className="nav-item">
                 <CustomLink  to='/inventory/:id' className="nav-link text-dark" >
                   Inventory
